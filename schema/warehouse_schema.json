@@ -1,0 +1,38 @@
+{
+  "database": "warehouse",
+  "tables": {
+    "users": {
+      "columns": [
+        { "name": "id", "type": "bigint" },
+        { "name": "email", "type": "varchar" },
+        { "name": "country", "type": "varchar" },
+        { "name": "created_at", "type": "timestamp" }
+      ]
+    },
+    "orders": {
+      "columns": [
+        { "name": "id", "type": "bigint" },
+        { "name": "user_id", "type": "bigint" },
+        { "name": "amount", "type": "numeric" },
+        { "name": "created_at", "type": "timestamp" }
+      ]
+    },
+    "user_contact_index": {
+      "columns": [
+        { "name": "user_id", "type": "bigint" },
+        { "name": "email", "type": "varchar" },
+        { "name": "is_contactable", "type": "boolean" }
+      ]
+    },
+    "customer_report": {
+      "columns": [
+        { "name": "user_id", "type": "bigint" },
+        { "name": "email", "type": "varchar" },
+        { "name": "country", "type": "varchar" },
+        { "name": "created_at", "type": "timestamp" },
+        { "name": "total_orders", "type": "int" },
+        { "name": "lifetime_value", "type": "numeric" }
+      ]
+    }
+  }
+}

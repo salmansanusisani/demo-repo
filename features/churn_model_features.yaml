@@ -1,0 +1,19 @@
+# features/churn_model_features.yaml
+# Feature definitions consumed by the churn-prediction model.
+# `email` is used only as a join/identity key here, not a training feature,
+# but a rename still requires updating this mapping.
+
+feature_view: churn_risk_v3
+source_table: user_contact_index
+entity_key: user_id
+identity_field: email
+features:
+  - name: total_orders
+    source: customer_report.total_orders
+    dtype: int
+  - name: lifetime_value
+    source: customer_report.lifetime_value
+    dtype: float
+  - name: days_since_signup
+    source: customer_report.created_at
+    dtype: int
