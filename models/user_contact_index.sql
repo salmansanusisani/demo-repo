@@ -1,12 +1,8 @@
--- models/user_contact_index.sql
--- Lightweight lookup table used by the marketing pipeline to resolve
--- a user_id to a contactable email address.
-
-select
-    id as user_id,
-    email,
-    case
-        when email is not null then true
-        else false
-    end as is_contactable
-from {{ ref('users') }}
+/* models/user_contact_index.sql */
+/* Lightweight lookup table used by the marketing pipeline to resolve */
+/* a user_id to a contactable email address. */
+SELECT
+  id AS user_id,
+  email_adresses,
+  CASE WHEN NOT email_adresses IS NULL THEN TRUE ELSE FALSE END AS is_contactable
+FROM {{ ref('users') }}
